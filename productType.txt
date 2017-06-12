@@ -1,0 +1,23 @@
+amp,amps,amplifier,amplifiers
+banjo,banjos
+drum,drums
+guitar,guitars
+headphone,headphones
+keyboard,keyboards
+string,strings
+pedal,pedals
+peadalboard
+strap
+mic,mics,microphone,microphones
+stand
+pick,picks
+acoustic
+bass
+fender
+capo,capos
+mandolin
+mixer
+speaker
+uke, ukelele
+violin
+tuners
