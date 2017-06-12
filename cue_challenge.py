@@ -90,6 +90,8 @@ def parseWords(path):
     f = open(path, "r")
     for word in f:
         words.add(word.strip())
+
+    f.close()
     return words
 
 def parseProductType(path):
@@ -101,6 +103,7 @@ def parseProductType(path):
         for i in range(1, len(similarTypes)):
             words[similarTypes[0]].add(similarTypes[i])
 
+    f.close()
     return words                      
         
 
@@ -141,13 +144,16 @@ def extractFacets(reviewText,
         for key in prodTypes:
             if word in prodTypes[key]:
                 addToDict(key, prodType)        
-    
-    sentimentDiff = posCount-negCount
+
+    sentimentDiff = 0
+    if len(wordList) > 0:    
+        sentimentDiff = float(posCount-negCount)/len(wordList)
+    print sentimentDiff
     sentimentSnippet = ''
     
-    if sentimentDiff > 10:
+    if sentimentDiff > 0.2:
         sentimentSnippet = 'Stellar review, product is highly recommended'
-    elif sentimentDiff > 5:
+    elif sentimentDiff > 0.1:
         sentimentSnippet = 'Good review, would recommend buying'
     elif sentimentDiff > 0:
         sentimentSnippet = 'Neutral review, not much to say'
